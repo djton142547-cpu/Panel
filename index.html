@@ -2,177 +2,188 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090000">
-  <title>Panel VaiperX</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090000">
+<title>Panel VaiperX</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      background: #050000;
-      font-family: Arial, sans-serif;
-    }
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #050000;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-    .panel {
-      position: relative;
-      width: min(100vw, 560px);
-      aspect-ratio: 941 / 1670;
-      background: url("https://i.postimg.cc/yxGhHRfY/Neon-Red-VAIPERX-Gaming-Key-Panel.png")
-        center top / 100% 100% no-repeat;
-      overflow: hidden;
-    }
+.panel {
+  position: relative;
+  width: min(100vw, 560px);
+  aspect-ratio: 941 / 1670;
+  background: url("https://i.postimg.cc/yxGhHRfY/Neon-Red-VAIPERX-Gaming-Key-Panel.png")
+    center top / 100% 100% no-repeat;
+  overflow: hidden;
+}
 
-    .copy-hit {
-      position: absolute;
-      border: 0;
-      padding: 0;
-      margin: 0;
-      background: transparent;
-      cursor: pointer;
-      border-radius: 50%;
-      -webkit-tap-highlight-color: transparent;
-      outline: none;
-    }
+.copy-hit, .tutorial-hit {
+  position: absolute;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    .copy-hit:focus-visible {
-      outline: 2px solid #fff;
-      outline-offset: 3px;
-      box-shadow: 0 0 14px #ff2020;
-    }
+/* ปุ่มคัดลอก IP */
+.copy-ip {
+  left: 79.6%;
+  top: 51%;
+  width: 7%;
+  height: 3.5%;
+}
 
-    /* ปุ่มคัดลอก IP */
-    .copy-ip {
-      left: 79.6%;
-      top: 51%;
-      width: 7%;
-      height: 3.5%;
-    }
+/* ปุ่มคัดลอก PORT */
+.copy-port {
+  left: 79.6%;
+  top: 58.1%;
+  width: 7%;
+  height: 3.5%;
+}
 
-    /* ปุ่มคัดลอก PORT */
-    .copy-port {
-      left: 79.6%;
-      top: 58.1%;
-      width: 7%;
-      height: 3.5%;
-    }
+/* ปุ่มคลิปสอน */
+.tutorial-hit {
+  left: 5%;
+  top: 65.2%;
+  width: 90%;
+  height: 7%;
+}
 
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 22px;
-      transform: translateX(-50%) translateY(12px);
-      padding: 10px 18px;
-      border: 1px solid #ff3434;
-      border-radius: 10px;
-      color: #fff;
-      background: rgba(15, 0, 0, .94);
-      box-shadow: 0 0 18px rgba(255, 0, 0, .55);
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: .2s ease;
-      white-space: nowrap;
-      z-index: 5;
-    }
+/* แจ้งเตือนคัดลอก */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(12px);
+  padding: 10px 18px;
+  border: 1px solid #ff3434;
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(15, 0, 0, .94);
+  box-shadow: 0 0 18px rgba(255, 0, 0, .55);
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .2s ease;
+  white-space: nowrap;
+  z-index: 5;
+}
 
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
-    @media (min-width: 561px) {
-      .panel {
-        width: min(560px, calc(100vh * 941 / 1670));
-      }
-    }
-  </style>
+@media (min-width: 561px) {
+  .panel {
+    width: min(560px, calc(100vh * 941 / 1670));
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <main class="panel" aria-label="Panel VaiperX">
+<main class="panel" aria-label="Panel VaiperX">
 
-    <!-- ปุ่มคัดลอก IP -->
-    <button
-      class="copy-hit copy-ip"
-      type="button"
-      aria-label="คัดลอก IP 154.197.69.98"
-      data-copy="154.197.69.98">
-    </button>
+  <!-- คัดลอก IP -->
+  <button
+    class="copy-hit copy-ip"
+    type="button"
+    aria-label="คัดลอก IP"
+    data-copy="154.197.69.98">
+  </button>
 
-    <!-- ปุ่มคัดลอก PORT -->
-    <button
-      class="copy-hit copy-port"
-      type="button"
-      aria-label="คัดลอก Port 1111"
-      data-copy="1111">
-    </button>
+  <!-- คัดลอก PORT -->
+  <button
+    class="copy-hit copy-port"
+    type="button"
+    aria-label="คัดลอก PORT"
+    data-copy="1111">
+  </button>
 
-  </main>
+  <!-- ปุ่มคลิปสอน YouTube -->
+  <a
+    class="tutorial-hit"
+    href="https://www.youtube.com/watch?v=1FW4vrgu5Tc&t=6s"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="เปิดคลิปสอน Panel VaiperX">
+  </a>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</main>
 
-  <script>
-    const toast = document.getElementById('toast');
-    let toastTimer;
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    async function copyText(value) {
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(value);
-        } else {
-          const field = document.createElement('textarea');
-          field.value = value;
-          field.setAttribute('readonly', '');
-          field.style.position = 'fixed';
-          field.style.opacity = '0';
+<script>
+const toast = document.getElementById('toast');
+let toastTimer;
 
-          document.body.appendChild(field);
-          field.select();
+async function copyText(value) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+    } else {
+      const field = document.createElement('textarea');
+      field.value = value;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
 
-          const copied = document.execCommand('copy');
-          field.remove();
+      document.body.appendChild(field);
+      field.select();
 
-          if (!copied) throw new Error('Copy failed');
-        }
+      const copied = document.execCommand('copy');
+      field.remove();
 
-        toast.textContent = 'คัดลอกแล้ว: ' + value;
-        toast.classList.add('show');
-
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 1600);
-
-      } catch (error) {
-        toast.textContent = 'ไม่สามารถคัดลอกได้ กรุณาลองอีกครั้ง';
-        toast.classList.add('show');
-
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2000);
-      }
+      if (!copied) throw new Error('Copy failed');
     }
 
-    document.querySelectorAll('[data-copy]').forEach(button => {
-      button.addEventListener('click', () => {
-        copyText(button.dataset.copy);
-      });
-    });
-  </script>
+    toast.textContent = 'คัดลอกแล้ว: ' + value;
+    toast.classList.add('show');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 1600);
+
+  } catch (error) {
+    toast.textContent = 'ไม่สามารถคัดลอกได้ กรุณาลองอีกครั้ง';
+    toast.classList.add('show');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2000);
+  }
+}
+
+document.querySelectorAll('[data-copy]').forEach(button => {
+  button.addEventListener('click', () => {
+    copyText(button.dataset.copy);
+  });
+});
+</script>
 
 </body>
 </html>
